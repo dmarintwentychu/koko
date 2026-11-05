@@ -21,6 +21,8 @@ body {
   -webkit-user-select: none;
   user-select: none;
   overscroll-behavior: none;
+  /* Sin pellizco ni doble toque para ampliar (iOS ignora user-scalable=no). */
+  touch-action: pan-x pan-y;
 }
 
 button {
