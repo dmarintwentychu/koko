@@ -28,7 +28,7 @@ export const MAX_SESSIONS = 1000;
 /** Las sesiones más cortas no aportan datos y se descartan. */
 export const MIN_SESSION_MS = 5000;
 
-const STORAGE_KEY = "semaforo-voz:v1";
+const STORAGE_KEY = "koko:v1";
 
 export const EMPTY_DATA: AppData = {
   version: 1,

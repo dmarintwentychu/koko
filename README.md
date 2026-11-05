@@ -27,7 +27,7 @@ El service worker solo se registra en producción (`npm run build && npm start`)
 - **Último estado:** cuando el niño deja de hablar, la pantalla conserva la última lectura (carita, mensaje y semáforo) hasta que vuelva a hablar o se pare el micro. El silencio no cuenta en las estadísticas.
 - **Tono:** ya no se muestra en la pantalla del niño, pero se sigue midiendo para la calibración y las estadísticas del panel de adultos.
 - **Estadísticas:** por sesión se guarda el tiempo en cada zona de volumen y tono (no audio). Se descartan las sesiones de menos de 5 s y se conservan las últimas 1000.
-- **Almacenamiento:** solo `localStorage` del dispositivo (clave `semaforo-voz:v1`). Si se borra el navegador o se cambia de móvil, se pierde. Los valores por defecto están en [`lib/audio/config.ts`](lib/audio/config.ts).
+- **Almacenamiento:** solo `localStorage` del dispositivo (clave `koko:v1`). Si se borra el navegador o se cambia de móvil, se pierde. Los valores por defecto están en [`lib/audio/config.ts`](lib/audio/config.ts).
 
 ## Publicar en GitHub Pages
 

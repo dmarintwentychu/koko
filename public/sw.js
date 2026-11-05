@@ -5,7 +5,7 @@
 // Funciona en la raíz o en una subruta (GitHub Pages): la base se deduce del
 // ámbito en el que se registró este archivo, p. ej. "/koko/".
 const BASE = new URL(self.registration.scope).pathname;
-const CACHE = "voz-v1";
+const CACHE = "koko-v1";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
