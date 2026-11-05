@@ -3,9 +3,9 @@ import { ServiceWorkerRegister } from "./components/ServiceWorkerRegister";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Semáforo de voz",
-  description: "Ayuda visual para que los niños regulen el volumen y el tono de su voz.",
-  appleWebApp: { capable: true, title: "Semáforo de voz", statusBarStyle: "default" },
+  title: "Koko",
+  description: "Ayuda visual para que los niños regulen el volumen de su voz.",
+  appleWebApp: { capable: true, title: "Koko", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "dev:lan": "next dev --experimental-https -H $(ipconfig getifaddr en0)",
-    "export": "STATIC_EXPORT=1 next build && rm -rf dist && mkdir dist && (cd out && zip -qr ../dist/semaforo-de-voz.zip .)"
+    "export": "STATIC_EXPORT=1 next build && rm -rf dist && mkdir dist && (cd out && zip -qr ../dist/koko.zip .)"
   },
   "dependencies": {
     "next": "16.4.5",

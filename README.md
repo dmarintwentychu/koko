@@ -1,4 +1,4 @@
-# Semáforo de voz
+# Koko
 
 PWA (Next.js) que ayuda a niños con dificultades del habla a regular el **volumen** de su voz mediante ayudas visuales. Todo el audio se procesa en el dispositivo: no se graba ni se envía nada.
 
@@ -47,7 +47,7 @@ Requisitos y avisos:
 Probar en local lo mismo que publicará Pages (simula la subruta `/koko`):
 
 ```bash
-NEXT_PUBLIC_BASE_PATH=/koko npm run export   # genera out/ y dist/semaforo-de-voz.zip
+NEXT_PUBLIC_BASE_PATH=/koko npm run export   # genera out/ y dist/koko.zip
 ```
 
 ## Estructura

@@ -8,8 +8,8 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Semáforo de voz",
-    short_name: "Voz",
+    name: "Koko",
+    short_name: "Koko",
     description: "Ayuda visual para regular el volumen de la voz.",
     lang: "es",
     start_url: `${base}/`,
