@@ -29,6 +29,27 @@ El service worker solo se registra en producción (`npm run build && npm start`)
 - **Estadísticas:** por sesión se guarda el tiempo en cada zona de volumen y tono (no audio). Se descartan las sesiones de menos de 5 s y se conservan las últimas 1000.
 - **Almacenamiento:** solo `localStorage` del dispositivo (clave `semaforo-voz:v1`). Si se borra el navegador o se cambia de móvil, se pierde. Los valores por defecto están en [`lib/audio/config.ts`](lib/audio/config.ts).
 
+## Publicar en GitHub Pages
+
+El workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) hace lint, construye la app como sitio estático y la publica en cada push a `main`.
+
+1. En GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Haz push a `main`. El workflow aparece en la pestaña **Actions**.
+3. La app queda en `https://<usuario>.github.io/<repo>/` (o en la raíz si el repositorio se llama `<usuario>.github.io`). La subruta la detecta solo `actions/configure-pages` y llega a la app por `NEXT_PUBLIC_BASE_PATH`.
+
+Requisitos y avisos:
+
+- Con una cuenta GitHub Free, el repositorio debe ser **público** y el sitio es público en internet. Los datos de los niños no se publican: viven solo en `localStorage` de cada móvil.
+- El micrófono funciona porque Pages sirve por **HTTPS**. Abre la dirección en el móvil y usa «Añadir a pantalla de inicio».
+- Con la exportación estática las cabeceras de seguridad de `next.config.ts` no se aplican; GitHub Pages no permite configurarlas.
+- Perfiles y estadísticas son por dirección: si cambias de dominio o de subruta, se empieza de cero.
+
+Probar en local lo mismo que publicará Pages (simula la subruta `/koko`):
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/koko npm run export   # genera out/ y dist/semaforo-de-voz.zip
+```
+
 ## Estructura
 
 - `lib/audio/` – micrófono (`engine`), detección de tono, zonas, calibración y hook `useVoiceMeter`.

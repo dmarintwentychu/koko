@@ -1,11 +1,15 @@
 // Service worker mínimo: permite abrir la app sin conexión.
 // - Navegación: red primero, con copia en caché como respaldo.
-// - Recursos estáticos de Next (/_next/static, iconos): caché primero.
+// - Recursos estáticos de Next (_next/static, iconos): caché primero.
+//
+// Funciona en la raíz o en una subruta (GitHub Pages): la base se deduce del
+// ámbito en el que se registró este archivo, p. ej. "/koko/".
+const BASE = new URL(self.registration.scope).pathname;
 const CACHE = "voz-v1";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(["/"])).then(() => self.skipWaiting()),
+    caches.open(CACHE).then((cache) => cache.addAll([BASE])).then(() => self.skipWaiting()),
   );
 });
 
@@ -29,15 +33,15 @@ self.addEventListener("fetch", (event) => {
       fetch(request)
         .then((res) => {
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put("/", copy));
+          caches.open(CACHE).then((c) => c.put(BASE, copy));
           return res;
         })
-        .catch(() => caches.match("/")),
+        .catch(() => caches.match(BASE)),
     );
     return;
   }
 
-  if (url.pathname.startsWith("/_next/static/") || url.pathname.startsWith("/icons/")) {
+  if (url.pathname.startsWith(`${BASE}_next/static/`) || url.pathname.startsWith(`${BASE}icons/`)) {
     event.respondWith(
       caches.match(request).then(
         (hit) =>
