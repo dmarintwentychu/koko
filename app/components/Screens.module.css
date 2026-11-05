@@ -1,0 +1,310 @@
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  max-width: 640px;
+  margin: 0 auto;
+  color: #1c2541;
+}
+
+.title {
+  margin: 8px 0;
+  text-align: center;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+}
+
+.h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 24px;
+  background: #fff;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.card p {
+  margin: 0;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: #4a5578;
+}
+
+.bigText {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.good {
+  color: #0f7a3d;
+  font-weight: 700;
+}
+.bad {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #ffe6e3;
+  color: #8a1c10;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 6px;
+}
+.facts {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary,
+.secondary,
+.danger {
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 24px;
+  border: 2px solid #1c2541;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.primary {
+  background: #1c2541;
+  color: #fff;
+}
+.secondary {
+  background: transparent;
+  color: #1c2541;
+}
+.danger {
+  background: transparent;
+  color: #b3261e;
+  border-color: #b3261e;
+}
+.primary:disabled,
+.danger:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.label {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+}
+.input {
+  min-height: 52px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 2px solid #1c2541;
+  font: inherit;
+  font-size: 1.2rem;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Selector de perfil */
+.profileGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+}
+.profileBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 8px;
+  border: 0;
+  border-radius: 28px;
+  background: #fff;
+  color: #1c2541;
+  cursor: pointer;
+}
+.profileBtn:active {
+  transform: scale(0.97);
+}
+.avatar {
+  font-size: 3.6rem;
+  line-height: 1;
+}
+.profileName {
+  font-weight: 800;
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.avatarSet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.avatarChoice {
+  position: relative;
+  font-size: 2.2rem;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #f3f6fb;
+  cursor: pointer;
+}
+.avatarChoice input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.avatarChoice:has(input:checked) {
+  outline: 4px solid #2ecc71;
+}
+.avatarChoice:has(input:focus-visible) {
+  outline: 4px solid #1c2541;
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* Barra de progreso de la calibración */
+.progress {
+  height: 22px;
+  border-radius: 11px;
+  background: #e3e8f2;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: #4da3ff;
+}
+.progressFill[data-phase="speech"] {
+  background: #2ecc71;
+}
+
+/* Panel de adultos */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+.panelTitle {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: #f3f6fb;
+}
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.statLabel {
+  font-size: 0.85rem;
+  color: #4a5578;
+}
+
+.bars {
+  display: grid;
+  gap: 8px;
+}
+.barCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.barTrack {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 10px;
+  background: #e3e8f2;
+  overflow: hidden;
+}
+.barFill {
+  width: 100%;
+  background: #2ecc71;
+}
+.barLabel {
+  font-weight: 700;
+}
+.barValue {
+  font-size: 0.8rem;
+  color: #4a5578;
+}
+
+/* Selector de periodo (semana / mes) */
+.segment {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px;
+  gap: 4px;
+  border-radius: 26px;
+  background: #e3e8f2;
+}
+.segmentBtn {
+  min-height: 44px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  color: #1c2541;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.segmentBtn[aria-pressed="true"] {
+  background: #1c2541;
+  color: #fff;
+}
+
+/* Mes: 30 barras finas */
+.bars[data-dense="true"] {
+  gap: 2px;
+}
+.bars[data-dense="true"] .barTrack {
+  border-radius: 4px;
+}
+.bars[data-dense="true"] .barLabel {
+  font-size: 0.7rem;
+  min-height: 1em;
+  white-space: nowrap;
+}

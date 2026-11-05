@@ -1,0 +1,31 @@
+.face {
+  width: min(52vw, 220px);
+  height: auto;
+  transition: transform 0.15s ease-out;
+}
+
+.face[data-zone="loud"] {
+  transform: scale(1.06);
+}
+
+.head {
+  fill: var(--zone-color);
+  transition: fill 0.2s;
+}
+
+.eye {
+  fill: #1c2541;
+}
+
+.mouth {
+  fill: #1c2541;
+}
+
+.line,
+.smile {
+  fill: none;
+  stroke: #1c2541;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

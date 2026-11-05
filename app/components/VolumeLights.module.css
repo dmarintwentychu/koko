@@ -1,0 +1,69 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px 16px;
+  background: #1c2541;
+  border-radius: 40px;
+}
+
+/* Tres columnas iguales (máx. 92 px): nunca se salen del contenedor. */
+.lights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 92px));
+  justify-content: space-around;
+  gap: 12px;
+}
+
+.light {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 18%;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  transition:
+    background 0.15s,
+    color 0.15s,
+    transform 0.15s;
+}
+
+/* El icono ocupa el círculo; sin esto el svg colapsaba a 0 de alto. */
+.light svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.light[data-on="true"] {
+  color: #1c2541;
+  transform: scale(1.08);
+}
+
+.light[data-light="loud"][data-on="true"] {
+  background: var(--red);
+}
+.light[data-light="ok"][data-on="true"] {
+  background: var(--green);
+}
+.light[data-light="low"][data-on="true"] {
+  background: var(--blue);
+}
+
+/* Barrita inferior con el nivel exacto. */
+.level {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.levelFill {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  transition: width 0.06s linear;
+}

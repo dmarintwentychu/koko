@@ -1,0 +1,130 @@
+.app {
+  --zone-color: #cfd8e3;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-areas:
+    "header"
+    "stage"
+    "gauges"
+    "footer";
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  background: var(--bg);
+  transition: background 0.3s;
+}
+
+.app[data-zone="low"] {
+  --zone-color: var(--blue);
+  --bg: #e3f0ff;
+}
+.app[data-zone="ok"] {
+  --zone-color: var(--green);
+  --bg: #e1f8ea;
+}
+.app[data-zone="loud"] {
+  --zone-color: var(--red);
+  --bg: #ffe6e3;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 18px 0 10px;
+  border: 0;
+  border-radius: 26px;
+  background: rgba(28, 37, 65, 0.1);
+  color: #1c2541;
+  cursor: pointer;
+}
+.whoAvatar {
+  font-size: 1.9rem;
+  line-height: 1;
+}
+.whoName {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.gear {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(28, 37, 65, 0.1);
+  color: #1c2541;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.stage {
+  grid-area: stage;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.message {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.8rem, 8vw, 3rem);
+  font-weight: 800;
+  color: #1c2541;
+}
+
+.gauges {
+  grid-area: gauges;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.error {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #fff;
+  color: #8a1c10;
+  text-align: center;
+}
+
+.mic {
+  width: 104px;
+  height: 104px;
+  padding: 28px;
+  border-radius: 50%;
+  border: 0;
+  background: #1c2541;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.mic:active {
+  transform: scale(0.95);
+}
+.mic[data-active="true"] {
+  background: var(--red);
+  color: #1c2541;
+}
+.mic:disabled {
+  opacity: 0.5;
+}
